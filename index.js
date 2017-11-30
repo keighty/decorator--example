@@ -1,4 +1,4 @@
-import { DecoratingIsWork } from './decorator'
+import { DecoratingIsFun, DecoratingMakesSense } from './decorator'
 
 class ExampleWithoutDecoration {
   doWork() {
@@ -6,15 +6,26 @@ class ExampleWithoutDecoration {
   }
 }
 
-@DecoratingIsWork
 class ExampleWithDecoration {
-  doDecoratedWork() {
+  @DecoratingIsFun
+  doWork() {
     console.log('can\'t you see I\'m working here?')
   }
 }
 
-const example = new ExampleWithoutDecoration()
-example.doWork()
+// const example = new ExampleWithoutDecoration()
+// example.doWork()
 
-const decoratedExample = new ExampleWithDecoration()
-decoratedExample.doDecoratedWork()
+// const decoratedExample = new ExampleWithDecoration()
+// decoratedExample.doWork()
+
+class ExampleWithDetailedDecoration {
+  @DecoratingMakesSense
+  doWork() {
+    console.log('can\'t you see I\'m working here?')
+  }
+}
+
+const makesSense = new ExampleWithDetailedDecoration()
+makesSense.doWork()
+makesSense.doWork = () => console.log('some other function')

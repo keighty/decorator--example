@@ -1,17 +1,16 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
 
 module.exports = {
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'main.bundle.js'
+    filename: 'main.js'
   },
   module: {
       loaders: [
     {
       test: /\.js$/,
-      exclude: /node_modules\/(?!(stardust))/,
+      exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
         cacheDirectory: true,
@@ -25,6 +24,5 @@ module.exports = {
   },
   stats: {
     colors: true
-  },
-  devtool: 'source-map'
-};
+  }
+}
